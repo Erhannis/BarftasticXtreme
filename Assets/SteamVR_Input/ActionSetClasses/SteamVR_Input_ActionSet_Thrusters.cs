@@ -17,19 +17,35 @@ namespace Valve.VR
     public class SteamVR_Input_ActionSet_Thrusters : Valve.VR.SteamVR_ActionSet
     {
         
-        public virtual SteamVR_Action_Single RightThruster
+        public virtual SteamVR_Action_Single RightDownThruster
         {
             get
             {
-                return SteamVR_Actions.thrusters_RightThruster;
+                return SteamVR_Actions.thrusters_RightDownThruster;
             }
         }
         
-        public virtual SteamVR_Action_Single LeftThruster
+        public virtual SteamVR_Action_Single LeftDownThruster
         {
             get
             {
-                return SteamVR_Actions.thrusters_LeftThruster;
+                return SteamVR_Actions.thrusters_LeftDownThruster;
+            }
+        }
+        
+        public virtual SteamVR_Action_Single RightDirectionalThruster
+        {
+            get
+            {
+                return SteamVR_Actions.thrusters_RightDirectionalThruster;
+            }
+        }
+        
+        public virtual SteamVR_Action_Single LeftDirectionalThruster
+        {
+            get
+            {
+                return SteamVR_Actions.thrusters_LeftDirectionalThruster;
             }
         }
     }

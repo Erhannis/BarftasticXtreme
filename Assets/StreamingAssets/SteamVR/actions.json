@@ -83,12 +83,22 @@
       "requirement": "optional"
     },
     {
-      "name": "/actions/Thrusters/in/RightThruster",
+      "name": "/actions/Thrusters/in/RightDownThruster",
       "type": "vector1",
       "requirement": "mandatory"
     },
     {
-      "name": "/actions/Thrusters/in/LeftThruster",
+      "name": "/actions/Thrusters/in/LeftDownThruster",
+      "type": "vector1",
+      "requirement": "mandatory"
+    },
+    {
+      "name": "/actions/Thrusters/in/RightDirectionalThruster",
+      "type": "vector1",
+      "requirement": "mandatory"
+    },
+    {
+      "name": "/actions/Thrusters/in/LeftDirectionalThruster",
       "type": "vector1",
       "requirement": "mandatory"
     }
