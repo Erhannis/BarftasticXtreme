@@ -48,5 +48,29 @@ namespace Valve.VR
                 return SteamVR_Actions.thrusters_LeftDirectionalThruster;
             }
         }
+        
+        public virtual SteamVR_Action_Boolean Reset
+        {
+            get
+            {
+                return SteamVR_Actions.thrusters_Reset;
+            }
+        }
+        
+        public virtual SteamVR_Action_Single LeftReversedDirectionalThruster
+        {
+            get
+            {
+                return SteamVR_Actions.thrusters_LeftReversedDirectionalThruster;
+            }
+        }
+        
+        public virtual SteamVR_Action_Single RightReversedDirectionalThruster
+        {
+            get
+            {
+                return SteamVR_Actions.thrusters_RightReversedDirectionalThruster;
+            }
+        }
     }
 }

@@ -63,6 +63,12 @@ namespace Valve.VR
         
         private static SteamVR_Action_Single p_thrusters_LeftDirectionalThruster;
         
+        private static SteamVR_Action_Boolean p_thrusters_Reset;
+        
+        private static SteamVR_Action_Single p_thrusters_LeftReversedDirectionalThruster;
+        
+        private static SteamVR_Action_Single p_thrusters_RightReversedDirectionalThruster;
+        
         public static SteamVR_Action_Boolean default_InteractUI
         {
             get
@@ -247,6 +253,30 @@ namespace Valve.VR
             }
         }
         
+        public static SteamVR_Action_Boolean thrusters_Reset
+        {
+            get
+            {
+                return SteamVR_Actions.p_thrusters_Reset.GetCopy<SteamVR_Action_Boolean>();
+            }
+        }
+        
+        public static SteamVR_Action_Single thrusters_LeftReversedDirectionalThruster
+        {
+            get
+            {
+                return SteamVR_Actions.p_thrusters_LeftReversedDirectionalThruster.GetCopy<SteamVR_Action_Single>();
+            }
+        }
+        
+        public static SteamVR_Action_Single thrusters_RightReversedDirectionalThruster
+        {
+            get
+            {
+                return SteamVR_Actions.p_thrusters_RightReversedDirectionalThruster.GetCopy<SteamVR_Action_Single>();
+            }
+        }
+        
         private static void InitializeActionArrays()
         {
             Valve.VR.SteamVR_Input.actions = new Valve.VR.SteamVR_Action[] {
@@ -272,7 +302,10 @@ namespace Valve.VR
                     SteamVR_Actions.thrusters_RightDownThruster,
                     SteamVR_Actions.thrusters_LeftDownThruster,
                     SteamVR_Actions.thrusters_RightDirectionalThruster,
-                    SteamVR_Actions.thrusters_LeftDirectionalThruster};
+                    SteamVR_Actions.thrusters_LeftDirectionalThruster,
+                    SteamVR_Actions.thrusters_Reset,
+                    SteamVR_Actions.thrusters_LeftReversedDirectionalThruster,
+                    SteamVR_Actions.thrusters_RightReversedDirectionalThruster};
             Valve.VR.SteamVR_Input.actionsIn = new Valve.VR.ISteamVR_Action_In[] {
                     SteamVR_Actions.default_InteractUI,
                     SteamVR_Actions.default_Teleport,
@@ -295,7 +328,10 @@ namespace Valve.VR
                     SteamVR_Actions.thrusters_RightDownThruster,
                     SteamVR_Actions.thrusters_LeftDownThruster,
                     SteamVR_Actions.thrusters_RightDirectionalThruster,
-                    SteamVR_Actions.thrusters_LeftDirectionalThruster};
+                    SteamVR_Actions.thrusters_LeftDirectionalThruster,
+                    SteamVR_Actions.thrusters_Reset,
+                    SteamVR_Actions.thrusters_LeftReversedDirectionalThruster,
+                    SteamVR_Actions.thrusters_RightReversedDirectionalThruster};
             Valve.VR.SteamVR_Input.actionsOut = new Valve.VR.ISteamVR_Action_Out[] {
                     SteamVR_Actions.default_Haptic};
             Valve.VR.SteamVR_Input.actionsVibration = new Valve.VR.SteamVR_Action_Vibration[] {
@@ -313,14 +349,17 @@ namespace Valve.VR
                     SteamVR_Actions.default_SnapTurnRight,
                     SteamVR_Actions.platformer_Jump,
                     SteamVR_Actions.buggy_Brake,
-                    SteamVR_Actions.buggy_Reset};
+                    SteamVR_Actions.buggy_Reset,
+                    SteamVR_Actions.thrusters_Reset};
             Valve.VR.SteamVR_Input.actionsSingle = new Valve.VR.SteamVR_Action_Single[] {
                     SteamVR_Actions.default_Squeeze,
                     SteamVR_Actions.buggy_Throttle,
                     SteamVR_Actions.thrusters_RightDownThruster,
                     SteamVR_Actions.thrusters_LeftDownThruster,
                     SteamVR_Actions.thrusters_RightDirectionalThruster,
-                    SteamVR_Actions.thrusters_LeftDirectionalThruster};
+                    SteamVR_Actions.thrusters_LeftDirectionalThruster,
+                    SteamVR_Actions.thrusters_LeftReversedDirectionalThruster,
+                    SteamVR_Actions.thrusters_RightReversedDirectionalThruster};
             Valve.VR.SteamVR_Input.actionsVector2 = new Valve.VR.SteamVR_Action_Vector2[] {
                     SteamVR_Actions.platformer_Move,
                     SteamVR_Actions.buggy_Steering};
@@ -346,7 +385,10 @@ namespace Valve.VR
                     SteamVR_Actions.thrusters_RightDownThruster,
                     SteamVR_Actions.thrusters_LeftDownThruster,
                     SteamVR_Actions.thrusters_RightDirectionalThruster,
-                    SteamVR_Actions.thrusters_LeftDirectionalThruster};
+                    SteamVR_Actions.thrusters_LeftDirectionalThruster,
+                    SteamVR_Actions.thrusters_Reset,
+                    SteamVR_Actions.thrusters_LeftReversedDirectionalThruster,
+                    SteamVR_Actions.thrusters_RightReversedDirectionalThruster};
         }
         
         private static void PreInitActions()
@@ -374,6 +416,9 @@ namespace Valve.VR
             SteamVR_Actions.p_thrusters_LeftDownThruster = ((SteamVR_Action_Single)(SteamVR_Action.Create<SteamVR_Action_Single>("/actions/Thrusters/in/LeftDownThruster")));
             SteamVR_Actions.p_thrusters_RightDirectionalThruster = ((SteamVR_Action_Single)(SteamVR_Action.Create<SteamVR_Action_Single>("/actions/Thrusters/in/RightDirectionalThruster")));
             SteamVR_Actions.p_thrusters_LeftDirectionalThruster = ((SteamVR_Action_Single)(SteamVR_Action.Create<SteamVR_Action_Single>("/actions/Thrusters/in/LeftDirectionalThruster")));
+            SteamVR_Actions.p_thrusters_Reset = ((SteamVR_Action_Boolean)(SteamVR_Action.Create<SteamVR_Action_Boolean>("/actions/Thrusters/in/Reset")));
+            SteamVR_Actions.p_thrusters_LeftReversedDirectionalThruster = ((SteamVR_Action_Single)(SteamVR_Action.Create<SteamVR_Action_Single>("/actions/Thrusters/in/LeftReversedDirectionalThruster")));
+            SteamVR_Actions.p_thrusters_RightReversedDirectionalThruster = ((SteamVR_Action_Single)(SteamVR_Action.Create<SteamVR_Action_Single>("/actions/Thrusters/in/RightReversedDirectionalThruster")));
         }
     }
 }

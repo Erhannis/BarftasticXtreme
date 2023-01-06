@@ -5,6 +5,7 @@ using Valve.VR;
 
 public class Thruster : MonoBehaviour {
     public SteamVR_Action_Single directionalThrottle;
+    public SteamVR_Action_Single reversedDirectionalThrottle;
     public SteamVR_Action_Single downThrottle;
     public GameObject thruster;
     public float multiplier;
@@ -21,6 +22,7 @@ public class Thruster : MonoBehaviour {
     void Update() {
         doDownThrust();
         doDirThrust();
+        doReversedDirThrust();
     }
 
     void applyForce(float force, Vector3 pos, Vector3 dir) {
@@ -49,7 +51,20 @@ public class Thruster : MonoBehaviour {
 
         if (throttleValue > 0f) {
             throttleValue *= multiplier;
-            print("thruster:dir " + throttleValue);
+            print("thruster:+dir " + throttleValue);
+            Vector3 dir = new Vector3(0,throttleValue,0);
+            dir = thruster.transform.rotation * dir;
+            vessel.AddForceAtPosition(dir, thruster.transform.position);
+        }
+    }
+
+    //RAINY Combine
+    void doReversedDirThrust() {
+        float throttleValue = reversedDirectionalThrottle.GetAxis(SteamVR_Input_Sources.Any);
+
+        if (throttleValue > 0f) {
+            throttleValue *= -multiplier; // Note the negative
+            print("thruster:-dir " + throttleValue);
             Vector3 dir = new Vector3(0,throttleValue,0);
             dir = thruster.transform.rotation * dir;
             vessel.AddForceAtPosition(dir, thruster.transform.position);

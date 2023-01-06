@@ -11,5 +11,6 @@ public class TODO : MonoBehaviour
       angular dampening
       velocity dampening
       position dampening???
+      gravity
     */
 }

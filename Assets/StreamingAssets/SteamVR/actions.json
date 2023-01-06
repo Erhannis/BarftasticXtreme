@@ -85,22 +85,35 @@
     {
       "name": "/actions/Thrusters/in/RightDownThruster",
       "type": "vector1",
-      "requirement": "mandatory"
+      "requirement": "suggested"
     },
     {
       "name": "/actions/Thrusters/in/LeftDownThruster",
       "type": "vector1",
-      "requirement": "mandatory"
+      "requirement": "suggested"
     },
     {
       "name": "/actions/Thrusters/in/RightDirectionalThruster",
       "type": "vector1",
-      "requirement": "mandatory"
+      "requirement": "suggested"
     },
     {
       "name": "/actions/Thrusters/in/LeftDirectionalThruster",
       "type": "vector1",
-      "requirement": "mandatory"
+      "requirement": "suggested"
+    },
+    {
+      "name": "/actions/Thrusters/in/Reset",
+      "type": "boolean",
+      "requirement": "suggested"
+    },
+    {
+      "name": "/actions/Thrusters/in/LeftReversedDirectionalThruster",
+      "type": "vector1"
+    },
+    {
+      "name": "/actions/Thrusters/in/RightReversedDirectionalThruster",
+      "type": "vector1"
     }
   ],
   "action_sets": [
