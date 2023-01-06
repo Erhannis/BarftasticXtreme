@@ -39,7 +39,7 @@ public class Thruster : MonoBehaviour {
 
         if (throttleValue > 0f) {
             throttleValue *= multiplier;
-            print("thruster:down " + throttleValue);
+            //print("thruster:down " + throttleValue);
             vessel.AddForceAtPosition(new Vector3(0,throttleValue,0), thruster.transform.position);
         }
     }
@@ -51,7 +51,7 @@ public class Thruster : MonoBehaviour {
 
         if (throttleValue > 0f) {
             throttleValue *= multiplier;
-            print("thruster:+dir " + throttleValue);
+            //print("thruster:+dir " + throttleValue);
             Vector3 dir = new Vector3(0,throttleValue,0);
             dir = thruster.transform.rotation * dir;
             vessel.AddForceAtPosition(dir, thruster.transform.position);
@@ -64,7 +64,7 @@ public class Thruster : MonoBehaviour {
 
         if (throttleValue > 0f) {
             throttleValue *= -multiplier; // Note the negative
-            print("thruster:-dir " + throttleValue);
+            //print("thruster:-dir " + throttleValue);
             Vector3 dir = new Vector3(0,throttleValue,0);
             dir = thruster.transform.rotation * dir;
             vessel.AddForceAtPosition(dir, thruster.transform.position);
